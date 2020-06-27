@@ -1,0 +1,24 @@
+
+
+{% extends 'authenticate/base.html' %}
+   {% block content%}
+
+<h3>Add new Entry </h3>
+
+   <article class="media">
+       <div class="col-md-6 offset-md-3">
+            <form method="POST" action="{% url 'new_entry' %}">
+                {% csrf_token %}
+               <div class="content">
+                   <!--<textarea class="textarea" placeholder="What's in your mind?"></textarea>-->
+                   {{new_entries.text}}
+               </div>
+                <br/>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+       </div>
+
+
+   </article>
+
+      {% endblock %}

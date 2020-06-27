@@ -1,0 +1,29 @@
+
+
+{% extends 'authenticate/base.html' %}
+   {% block content%}
+
+<h1>Dear Diary </h1>
+
+<a href="{% url 'new_entry' %}"> Add new Entry</a>
+<br/>
+<br/>
+
+{% for entry in entries %}
+   <article class="media">
+       <div class="media-content">
+           <div class="content">
+               <p>
+                   <strong>{{ entry.date_posted }}</strong>
+                   <br/>{{entry.text}}
+               </p>
+               <div>
+                    <button  class="btn btn-primary waves-effect waves-light" id="update">Update</button>
+                    <button  class="btn btn-danger waves-effect waves-light" id="delete">Delete</button>
+              </div>
+           </div>
+           <p>------------------------------------------------</p>
+       </div>
+   </article>
+{% endfor %}
+      {% endblock %}

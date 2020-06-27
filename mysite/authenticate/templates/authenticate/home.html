@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale">
+    <title>Insta</title>
+</head>
+<body>
+    <h1 style="text-align:center;">Instagram feed search</h1>
+<form id="myForm" autocomplete="off">
+    <input type="text" id="username" required>
+    <input type="submit" value="Search">
+</form>
+<div id="instagram-feed-demo" class="instagram_feed"></div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+ <script src="instafeed.min.js"></script>
+<script>
+    $(document).ready(function(){
+    $("#myForm").submit(function(e){
+        e.preventDefault()
+        var username=$("#username").val()
+
+        $.instagramFeed({
+        'username':username,
+        'container':"#instagram-feed-demo"
+        });
+    });
+    });
+</script>
+ </html>
